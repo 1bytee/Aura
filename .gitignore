@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Maven template
+target/
+
+# IntelliJ project files
+.idea/
+Aura FORK.iml
