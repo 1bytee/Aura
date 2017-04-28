@@ -18,7 +18,7 @@ public class LobbyTask extends AbstractTask {
 
     @Override
     public void run() {
-        if (Bukkit.getOnlinePlayers().size() < 2 && cooldown <= 30) {
+        if (Bukkit.getOnlinePlayers().size() < Aura.MIN_PLAYERS && cooldown <= 30) {
             cooldown = 30;
         } else if (cooldown != 0) {
             if (cooldown == 30 || cooldown == 10) {

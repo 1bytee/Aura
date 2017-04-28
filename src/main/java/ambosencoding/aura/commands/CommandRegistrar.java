@@ -46,7 +46,7 @@ public class CommandRegistrar {
         }
 
         map.register(getClass().getSimpleName().toLowerCase(), cmd);
-        System.out.printf("[MongoPerms] Registered command %s", command.name());
+        System.out.printf("[Aura] Registered command %s", command.name());
     }
 
     @SneakyThrows
