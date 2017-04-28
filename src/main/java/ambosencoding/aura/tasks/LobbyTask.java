@@ -79,7 +79,10 @@ public class LobbyTask extends AbstractTask {
     }
 
     private void sendTitle() {
-        Title.builder().setTimes(5, 12, 3).setTitle(color().toString() + cooldown).sendAll();
+        Title.builder()
+                .setTimes(5, 12, 3)
+                .setTitle(color().toString() + cooldown)
+                .sendAll();
     }
 
     private ChatColor color() {

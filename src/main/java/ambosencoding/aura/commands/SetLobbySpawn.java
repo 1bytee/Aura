@@ -17,7 +17,7 @@ public class SetLobbySpawn implements CommandExecutor {
 
         Player p = (Player) sender;
 
-        if (!p.hasPermission("battle.admin")) {
+        if (!p.hasPermission("aura.admin")) {
             p.sendMessage(Aura.PREFIX + "Du hast keine Rechte um den Befehl auszuführen.");
             return true;
         }

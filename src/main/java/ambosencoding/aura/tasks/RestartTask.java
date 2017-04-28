@@ -4,10 +4,8 @@ import ambosencoding.aura.Aura;
 import ambosencoding.aura.Team;
 import ambosencoding.aura.database.Stats;
 import ambosencoding.aura.utils.LocationManager;
-import net.minecraft.server.v1_8_R3.IChatBaseComponent;
-import net.minecraft.server.v1_8_R3.PacketPlayOutTitle;
+import ambosencoding.aura.utils.Title;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -57,17 +55,11 @@ public class RestartTask {
     }
 
     private static void sendTitle(String title, String subtitle) {
-        Bukkit.getOnlinePlayers().forEach(p -> sendTitle(p, title, subtitle));
-    }
-
-    private static void sendTitle(Player p, String title, String subtitle) {
-        CraftPlayer cp = (CraftPlayer) p;
-        PacketPlayOutTitle packetTitle = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + title + "\"}"));
-        PacketPlayOutTitle packetSubtitle = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.SUBTITLE, IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + subtitle + "\"}"));
-        PacketPlayOutTitle times = new PacketPlayOutTitle(10, 40, 10);
-        cp.getHandle().playerConnection.sendPacket(times);
-        cp.getHandle().playerConnection.sendPacket(packetTitle);
-        cp.getHandle().playerConnection.sendPacket(packetSubtitle);
+        Title.builder()
+                .setTimes(10, 40, 10)
+                .setTitle(title)
+                .setSubtitle(subtitle)
+                .sendAll();
     }
 
 }

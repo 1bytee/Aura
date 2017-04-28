@@ -23,7 +23,7 @@ public class BlockListener implements Listener {
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent e) {
         Player p = e.getPlayer();
-        if (p.hasPermission("battle.admin") && p.getGameMode() == GameMode.CREATIVE) {
+        if (p.hasPermission("aura.admin") && p.getGameMode() == GameMode.CREATIVE) {
             e.setCancelled(false);
         } else {
             e.setCancelled(true);
